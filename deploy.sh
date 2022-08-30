@@ -2,13 +2,13 @@
 
 function healthCheck() {
     echo "Waiting for Structr to be ready for deployment"
-    for i in $(seq 1 20)
+    for i in $(seq 1 30)
     do
-      STATUS_CODE=$(curl --write-out %{http_code} --silent localhost:8082/structr/health/ready)
+      STATUS_CODE=$(curl --write-out %{http_code} localhost:8082/structr/health/ready)
       
       if [ "$STATUS_CODE" -ne 200 ] ; then
         echo "Status is $STATUS_CODE. Still waiting for Structr to start..."
-        sleep 3
+        sleep 5
       else
         echo "Running Structr instance found"
         return 0
