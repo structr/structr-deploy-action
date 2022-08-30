@@ -31,8 +31,7 @@ runs:
         sed -i "s|STRUCTR_VERSION|$STRUCTR_VERSION|g" docker-compose.yml &&
         sed -i "s|STRUCTR_WEBAPP_PATH|$STRUCTR_WEBAPP_PATH|g" docker-compose.yml &&
         docker-compose up -d
-      shell: bash
-      
+      shell: bash      
 
     - name: Deploy given webapp
       run: ./deploy.sh
