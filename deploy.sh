@@ -2,12 +2,15 @@
 
 function healthCheck() {
     echo "Waiting for Structr to be ready for deployment"
-    for i in $(seq 1 30)
+    for i in $(seq 1 20)
     do
-      status_code=$(curl --write-out %{http_code} --silent localhost:8082/structr/health/ready)
-      if [ "$status_code" -ne 200 ] ; then
+      STATUS_CODE=$(curl --write-out %{http_code} --silent localhost:8082/structr/health/ready)
+      
+      if [ "$STATUS_CODE" -ne 200 ] ; then
+        echo "Status is $STATUS_CODE. Still waiting for Structr to start..."
         sleep 3
       else
+        echo "Running Structr instance found"
         return 0
       fi
     done
@@ -17,15 +20,15 @@ function healthCheck() {
 
 function deploy() {
     exec 3>&1
-    status_code=$(curl --write-out %{http_code} \
+    STATUS_CODE=$(curl --write-out %{http_code} \
     -HX-User:superadmin -HX-Password:superuser \
     --silent -XPOST http://localhost:8082/structr/rest/maintenance/deploy -d '{mode:"import", source:"/repository"}' \
     -o >(cat >&3))
-    if [ "$status_code" -ne 200 ] ; then
-      echo "$status_code Deployment failed!"
+    if [ "$STATUS_CODE" -ne 200 ] ; then
+      echo "$STATUS_CODE Deployment failed!"
       exit 1
     else
-      echo "$status_code: Deployment successfull!"
+      echo "$STATUS_CODE: Deployment successfull!"
     fi
 }
 
