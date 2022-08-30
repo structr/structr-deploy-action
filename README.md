@@ -7,13 +7,11 @@ Structr can be accessed via `localhost:8082` after this action has been complete
  - `structr-version`: The version of Structr to start. Defaults to "4.2.0"
  - `neo4j-version`: The version of Neo4j to use. Defaults to "4.4"
  - `structr-webapp-path`: The absolute path to the folder containing the Structr webapp. Defaults to "${{ github.workspace }}/webapp"
+ - `structr-license`: A valid Structr license key. Best passed from a secret in Github,
 
 ## Used context variables
 - `${{ github.workspace }}`
 - `${{ github.action_path }}`
-
-If you have a valid Structr license key, you can enter it as a secret into the repositories secrets.
-- `${{ secrets.STRUCTR_LICENSE }}`
 
 ## Example configuration: 
 ```

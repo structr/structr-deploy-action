@@ -18,6 +18,11 @@ inputs:
     description: "The path to the Structr webapp folder. Defaults to <github.workspace>/webapp"  
     required: true
     default: "${{ github.workspace }}/webapp"
+  structr-license:
+    description: "A valid Structr license key"
+    required: false
+    default: ""
+  
 
 runs:
   using: "composite"
@@ -31,7 +36,7 @@ runs:
           NEO4j_VERSION: ${{ inputs.neo4j-version }}
           STRUCTR_VERSION: ${{ inputs.structr-version }}
           STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
-          STRUCTR_LICENSE: ${{ secrets.STRUCTR_LICENSE }}
+          STRUCTR_LICENSE: ${{ inputs.structr-license }}
       run: >-
         cd ${{ github.action_path }} && 
         sed -i "s|NEO4j_VERSION|$NEO4j_VERSION|g" docker-compose.yml &&
