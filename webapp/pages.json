@@ -1,0 +1,21 @@
+{
+  "hello-world": {
+    "basicAuthRealm": null,
+    "cacheForSeconds": null,
+    "category": null,
+    "dontCache": false,
+    "enableBasicAuth": false,
+    "grantees": [],
+    "hidden": false,
+    "hideConditions": null,
+    "id": "722b24c6927c441cbd845a86ab0e6fed",
+    "owner": null,
+    "pageCreatesRawData": false,
+    "path": null,
+    "position": null,
+    "showConditions": null,
+    "showOnErrorCodes": null,
+    "visibleToAuthenticatedUsers": true,
+    "visibleToPublicUsers": true
+  }
+}

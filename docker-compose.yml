@@ -1,0 +1,37 @@
+version: '3.3'
+services:  
+  neo4j:
+    image: neo4j:$NEO4j_VERSION
+    environment:
+      - NEO4J_AUTH=neo4j/structr
+    networks:
+      database:
+        aliases:
+          - neo4j
+  structr:
+    image: structr/structr:$STRUCTR_VERSION
+    depends_on:
+      - neo4j
+    ports:
+     - "8082:8082"
+    environment:
+      - STRUCTR_MIN_HEAP=1g
+      - STRUCTR_MAX_HEAP=2g
+      - AGREE_TO_STRUCTR_PRIVACY_POLICY=yes
+      - STRUCTR_superuser_password=superuser
+      - STRUCTR_database_available_connections=neo4j_default
+      - STRUCTR_neo4j__default_database_driver=org.structr.bolt.BoltDatabaseService
+      - STRUCTR_neo4j__default_database_connection_name=neo4j_default
+      - STRUCTR_neo4j__default_database_connection_url=bolt://neo4j:7687
+      - STRUCTR_neo4j__default_database_connection_username=neo4j
+      - STRUCTR_neo4j__default_database_connection_password=structr
+      - STRUCTR_nodeservice_active=neo4j_default
+    
+    volumes:
+      - $STRUCTR_WEBAPP_PATH:/repository
+
+    networks:
+      database:
+
+networks:
+  database:
