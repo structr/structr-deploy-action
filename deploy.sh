@@ -19,6 +19,7 @@ function healthCheck() {
 }
 
 function deploy() {
+    echo "Starting deployment..."
     exec 3>&1
     STATUS_CODE=$(curl --write-out %{http_code} \
     -HX-User:superadmin -HX-Password:superuser \

@@ -1,5 +1,10 @@
-name: "Structr Deployment"
-description: "Github action that start Structr and Neo4j and deploys a given webapp"
+name: "Structr start and deploy action"
+description: "This action starts Structr and Neo4j and deploys a given webapp. The resulting stack can be used for testing or other CI purposes."
+
+branding:
+  icon: arrow-down-circle
+  color: green
+
 inputs:
   structr-version:
     description: "The version of Structr to start"
