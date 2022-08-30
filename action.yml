@@ -31,9 +31,11 @@ runs:
           NEO4j_VERSION: ${{ inputs.neo4j-version }}
           STRUCTR_VERSION: ${{ inputs.structr-version }}
           STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
+          STRUCTR_LICENSE: ${{ secrets.STRUCTR_LICENSE }}
       run: >-
         cd ${{ github.action_path }} && 
         sed -i "s|NEO4j_VERSION|$NEO4j_VERSION|g" docker-compose.yml &&
+        sed -i "s|STRUCTR_LICENSE|$STRUCTR_LICENSE|g" docker-compose.yml &&
         sed -i "s|STRUCTR_VERSION|$STRUCTR_VERSION|g" docker-compose.yml &&
         sed -i "s|STRUCTR_WEBAPP_PATH|$STRUCTR_WEBAPP_PATH|g" docker-compose.yml &&
         docker-compose up -d

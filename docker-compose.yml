@@ -26,6 +26,7 @@ services:
       - STRUCTR_neo4j__default_database_connection_username=neo4j
       - STRUCTR_neo4j__default_database_connection_password=structr
       - STRUCTR_nodeservice_active=neo4j_default
+      - STRUCTR_license_key=STRUCTR_LICENSE
     
     volumes:
       - STRUCTR_WEBAPP_PATH:/repository

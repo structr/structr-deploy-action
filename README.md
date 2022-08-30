@@ -12,6 +12,9 @@ Structr can be accessed via `localhost:8082` after this action has been complete
 - `${{ github.workspace }}`
 - `${{ github.action_path }}`
 
+If you have a valid Structr license key, you can enter it as a secret into the repositories secrets.
+- `${{ secrets.STRUCTR_LICENSE }}`
+
 ## Example configuration: 
 ```
 jobs:
