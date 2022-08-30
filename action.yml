@@ -27,11 +27,9 @@ runs:
           STRUCTR_VERSION: ${{ inputs.structr-version }}
           STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
       run: >-
-        cat docker-compose.yml &&
         sed -i "s|NEO4j_VERSION|$NEO4j_VERSION|g" docker-compose.yml &&
         sed -i "s|STRUCTR_VERSION|$STRUCTR_VERSION|g" docker-compose.yml &&
         sed -i "s|STRUCTR_WEBAPP_PATH|$STRUCTR_WEBAPP_PATH|g" docker-compose.yml &&
-        cat docker-compose.yml &&
         docker-compose up -d
       shell: bash
       
