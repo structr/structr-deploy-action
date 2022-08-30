@@ -22,16 +22,17 @@ runs:
       shell: bash
 
     - name: Start Structr and Neo4j
+      env:
+          NEO4J_VERSION: ${{ inputs.neo4j-version }}
+          STRUCTR_VERSION: ${{ inputs.structr-version }}
+          STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
       run: >-
         sed -i "s|NEO4J_VERSION|${NEO4J_VERSION}|g" "docker-compose.yml" &&
         sed -i "s|STRUCTR_VERSION|${STRUCTR_VERSION}|g" "docker-compose.yml" &&
         sed -i "s|STRUCTR_WEBAPP_PATH|${STRUCTR_WEBAPP_PATH}|g" "docker-compose.yml" &&
         docker-compose up -d
       shell: bash
-      env:
-        NEO4J_VERSION: ${{ inputs.neo4j-version }}
-        STRUCTR_VERSION: ${{ inputs.structr-version }}
-        STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
+      
 
     - name: Deploy given webapp
       run: ./deploy.sh
