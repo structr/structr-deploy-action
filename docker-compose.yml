@@ -1,7 +1,7 @@
 version: '3.3'
 services:  
   neo4j:
-    image: neo4j:$NEO4j_VERSION
+    image: neo4j:NEO4j_VERSION
     environment:
       - NEO4J_AUTH=neo4j/structr
     networks:
@@ -9,7 +9,7 @@ services:
         aliases:
           - neo4j
   structr:
-    image: structr/structr:$STRUCTR_VERSION
+    image: structr/structr:STRUCTR_VERSION
     depends_on:
       - neo4j
     ports:
@@ -28,7 +28,7 @@ services:
       - STRUCTR_nodeservice_active=neo4j_default
     
     volumes:
-      - $STRUCTR_WEBAPP_PATH:/repository
+      - STRUCTR_WEBAPP_PATH:/repository
 
     networks:
       database:
