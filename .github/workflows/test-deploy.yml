@@ -5,12 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy and test
     steps:
-      - uses: actions/structr-deploy-action@v1
-      - id: foo
-        uses: structr/hello-world-composite-action@v1
+      - uses: actions/checkout@v3
+      - id: Test
+        uses: structr/structr-deploy-action@v1
         with:
           neo4j-version: '4.4'
           structr-version: '4.3-SNAPSHOT'
           structr-webapp-path: '${{ github.workspace }}/webapp'
 
-      - run: curl -v localhost:8082/hello-world
+      - name: "Run hello-world"
+        run: curl -v localhost:8082/hello-world
