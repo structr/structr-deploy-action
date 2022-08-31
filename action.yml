@@ -1,5 +1,5 @@
 name: "Structr start and deploy action"
-description: "This action starts Structr and Neo4j and deploys a given webapp. The resulting stack can be used for testing or other CI purposes."
+description: "Deploys a Structr and Neo4j stack into an action runner and imports a given Structr webapp."
 
 branding:
   icon: arrow-down-circle
