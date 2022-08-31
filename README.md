@@ -1,3 +1,5 @@
+[![Tests](https://github.com/structr/structr-deploy-action/actions/workflows/test-deploy.yml/badge.svg)](https://github.com/structr/structr-deploy-action/actions/workflows/test-deploy.yml)
+
 # Structr Deploy Action
 This action starts Structr and Neo4j and deploys a given webapp. The resulting stack can be used for testing or other CI purposes.
 
@@ -26,4 +28,5 @@ jobs:
           neo4j-version: '4.4'
           structr-version: '4.3-SNAPSHOT'
           structr-webapp-path: '${{ github.workspace }}/webapp'
+          structr-license: '${{ secrets.STRUCTR_LICENSE }}'
 ```
