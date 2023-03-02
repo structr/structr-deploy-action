@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: Test
-        uses: structr/structr-deploy-action@v1.1-beta
+        uses: structr/structr-deploy-action@v1
         with:
           neo4j-version: '4.4'
           structr-version: '4.3-SNAPSHOT'
