@@ -15,3 +15,5 @@ fi
 
 echo Structr conf file path: $STRUCTR_CONF_FILE
 sed -i "s|STRUCTR_CONF_FILE|$STRUCTR_CONF_FILE|g" docker-compose.yml
+
+cat docker-compose.yml
