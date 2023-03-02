@@ -19,6 +19,3 @@ jobs:
 
       - name: "Run hello-world"
         run: curl -v localhost:8082/hello-world
-      
-      - name: Log structr.conf contents
-        run: cat ${{ github.workspace }}/structr.conf
