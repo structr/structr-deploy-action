@@ -1,9 +1,7 @@
 name: Test deployment
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch
 
 jobs:
   deploy-job:
@@ -12,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: Test
-        uses: structr/structr-deploy-action@v1
+        uses: structr/structr-deploy-action@v1.1-beta
         with:
           neo4j-version: '4.4'
           structr-version: '4.3-SNAPSHOT'
