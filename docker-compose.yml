@@ -30,6 +30,7 @@ services:
     
     volumes:
       - STRUCTR_WEBAPP_PATH:/repository
+      - STRUCTR_CONF_FILE:/var/lib/structr/structr.conf
 
     networks:
       database:

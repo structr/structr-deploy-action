@@ -22,6 +22,10 @@ inputs:
     description: "A valid Structr license key"
     required: false
     default: ""
+  structr-conf-file:
+    description: "A custom structr.conf file used for the deployment"
+    required: false
+    default: ""
   
 
 runs:
@@ -37,13 +41,12 @@ runs:
           STRUCTR_VERSION: ${{ inputs.structr-version }}
           STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
           STRUCTR_LICENSE: ${{ inputs.structr-license }}
+          STRUCTR_CONF_FILE: ${{ inputs.structr-conf-file }}
       run: >-
         cd ${{ github.action_path }} && 
-        sed -i "s|NEO4j_VERSION|$NEO4j_VERSION|g" docker-compose.yml &&
-        sed -i "s|STRUCTR_LICENSE|$STRUCTR_LICENSE|g" docker-compose.yml &&
-        sed -i "s|STRUCTR_VERSION|$STRUCTR_VERSION|g" docker-compose.yml &&
-        sed -i "s|STRUCTR_WEBAPP_PATH|$STRUCTR_WEBAPP_PATH|g" docker-compose.yml &&
-        docker-compose up -d
+        ./setup_environment.sh &&
+        docker-compose up -d      
+        
       shell: bash      
 
     - name: Deploy given webapp
