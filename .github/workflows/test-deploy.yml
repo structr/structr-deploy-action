@@ -15,13 +15,13 @@ jobs:
           neo4j-version: '4.4'
           structr-version: '4.3-SNAPSHOT'
           structr-webapp-path: '${{ github.workspace }}/webapp'
-          structr-conf-file: './structr.conf'
+          structr-conf-file: '${{ github.workspace }}/structr.conf'
 
       - name: "Run hello-world"
         run: curl -v localhost:8082/hello-world
 
       - name: Log docker-compose 
-        run: cat ./docker-compose.yml
+        run: cat ${{ github.workspace }}/docker-compose.yml
       
       - name: Log structr.conf contents
-        run: cat ./structr.conf
+        run: cat ${{ github.workspace }}/structr.conf
