@@ -44,7 +44,7 @@ runs:
           STRUCTR_CONF_FILE: ${{ inputs.structr-conf-file }}
       run: >-        
         ./setup_environment.sh ${{ github.action_path }} &&
-        docker-compose up -d      
+        cd ${{ github.action_path }} && docker-compose up -d      
         
       shell: bash      
 
