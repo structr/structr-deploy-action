@@ -32,7 +32,7 @@ runs:
   using: "composite"
   steps:
     - name: Print configuration
-      run: echo "Running Structr:${{ inputs.structr-version }} with Neo4j:${{ inputs.neo4j-version }} \nDeploying from ${{ inputs.structr-webapp-path }}"
+      run: echo "Running Structr:${{ inputs.structr-version }} with Neo4j:${{ inputs.neo4j-version }} and deploying from ${{ inputs.structr-webapp-path }}"
       shell: bash
 
     - name: Start Structr and Neo4j
