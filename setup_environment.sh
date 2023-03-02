@@ -1,3 +1,6 @@
+ACTION_PATH=$1
+cd $ACTION_PATH
+
 echo "Replacing variables for Structr and Neo4j docker configuration"
 echo Neo4j version: $NEO4j_VERSION
 echo Structr version: $STRUCTR_VERSION

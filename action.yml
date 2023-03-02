@@ -42,9 +42,8 @@ runs:
           STRUCTR_WEBAPP_PATH: ${{ inputs.structr-webapp-path }}
           STRUCTR_LICENSE: ${{ inputs.structr-license }}
           STRUCTR_CONF_FILE: ${{ inputs.structr-conf-file }}
-      run: >-
-        cd ${{ github.action_path }} && 
-        ./setup_environment.sh &&
+      run: >-        
+        ./setup_environment.sh ${{ github.action_path }} &&
         docker-compose up -d      
         
       shell: bash      
