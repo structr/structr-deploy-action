@@ -28,5 +28,6 @@ jobs:
           neo4j-version: '4.4'
           structr-version: '4.3-SNAPSHOT'
           structr-webapp-path: '${{ github.workspace }}/webapp'
+          structr-conf-file: '${{ github.workspace }}/structr.conf'
           structr-license: '${{ secrets.STRUCTR_LICENSE }}'
 ```
