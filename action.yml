@@ -45,7 +45,6 @@ runs:
       run: >-        
         ./setup_environment.sh ${{ github.action_path }} &&
         cd ${{ github.action_path }} && docker compose up -d      
-        
       shell: bash      
 
     - name: Deploy given webapp
