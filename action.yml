@@ -9,11 +9,11 @@ inputs:
   structr-version:
     description: "The version of Structr to start"
     required: true
-    default: "4.2.0"
+    default: "5.2.1"
   neo4j-version:
     description: "The version of Neo4j to start"
     required: true
-    default: "4.4"
+    default: "latest"
   structr-webapp-path:
     description: "The path to the Structr webapp folder. Defaults to <github.workspace>/webapp"  
     required: true
@@ -44,7 +44,7 @@ runs:
           STRUCTR_CONF_FILE: ${{ inputs.structr-conf-file }}
       run: >-        
         ./setup_environment.sh ${{ github.action_path }} &&
-        cd ${{ github.action_path }} && docker-compose up -d      
+        cd ${{ github.action_path }} && docker compose up -d      
         
       shell: bash      
 

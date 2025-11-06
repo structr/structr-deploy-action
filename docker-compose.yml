@@ -1,9 +1,8 @@
-version: '3.3'
 services:  
   neo4j:
     image: neo4j:NEO4j_VERSION
     environment:
-      - NEO4J_AUTH=neo4j/structr
+      - NEO4J_AUTH=neo4j/structrDeployAction
     networks:
       database:
         aliases:
@@ -24,7 +23,7 @@ services:
       - STRUCTR_neo4j__default_database_connection_name=neo4j_default
       - STRUCTR_neo4j__default_database_connection_url=bolt://neo4j:7687
       - STRUCTR_neo4j__default_database_connection_username=neo4j
-      - STRUCTR_neo4j__default_database_connection_password=structr
+      - STRUCTR_neo4j__default_database_connection_password=structrDeployAction
       - STRUCTR_nodeservice_active=neo4j_default
       - STRUCTR_license_key=STRUCTR_LICENSE
     

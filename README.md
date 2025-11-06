@@ -25,8 +25,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: structr/structr-deploy-action@v1
         with:
-          neo4j-version: '4.4'
-          structr-version: '4.3-SNAPSHOT'
+          neo4j-version: 'latest'
+          structr-version: '5.2.1'
           structr-webapp-path: '${{ github.workspace }}/webapp'
           structr-license: '${{ secrets.STRUCTR_LICENSE }}'
 ```
